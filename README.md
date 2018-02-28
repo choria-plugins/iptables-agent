@@ -1,4 +1,4 @@
-# MCollective IPTables Agent
+# Choria IPTables Agent
 
 This agent manages a specific chain in iptables or ip6tables, you can use it to
 add, remove, query or list entries of the chain.
@@ -10,7 +10,18 @@ chains.
 It is limited to managing one configured chain to which has to exist before the
 agent will activate.
 
-## Setup
+<!--- actions -->
+
+## Agent Installtion
+
+Add the agent and client:
+
+```yaml
+mcollective::plugin_classes:
+  - mcollective_agent_nettest
+```
+
+## Configuration
 
 The chain you configure has to exist before MCollective start else this agent
 will not activate, you can create the chain using your systems RC scripts which
@@ -28,23 +39,30 @@ on its contents.
 This will drop all port 22 traffic for hosts listed in the *junk_filter* chain
 while allowing connections to port 22 from everywhere else.
 
-You then configure the agent in your *server.cfg* to use the *junk_filter*
-chain:
+You then configure the agent via hiera to use the *junk_filter* chain:
 
-     plugin.iptables.chain = junk_filter
-     plugin.iptables.target = DROP
+```yaml
+mcollective_agent_iptables::config:
+  chain: junk_filter
+  target: DROP
+```
 
-These lines will instruct the agent to add entries to the *junk_filter* chain
+These will instruct the agent to add entries to the *junk_filter* chain
 with the *DROP* target.
 
 You can also adjust the paths to some commands if your system does not use
 standard locations for these:
 
-    plugin.iptables.iptables = /usr/local/bin/iptables
-    plugin.iptables.ip6tables = /usr/local/bin/ip6tables
-    plugin.iptables.logger = /usr/local/bin/logger
+```yaml
+mcollective_agent_iptables::config:
+  iptables: /usr/local/bin/iptables
+  ip6tables: /usr/local/bin/ip6tables
+  logger: /usr/local/bin/logger
+```
+
 
 ## Usage
+
 The agent include a utility application that simplifies the command line
 interaction, the examples show that but you can of course also use normal RPC
 application commands.

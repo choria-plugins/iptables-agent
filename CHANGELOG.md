@@ -1,6 +1,6 @@
 # Changelog
 
-Change history for mcollective-iptables.
+Change history for `choria/mcollective_agent_iptables`
 
 ## 3.0.2
 
