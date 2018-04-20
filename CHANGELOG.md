@@ -2,6 +2,13 @@
 
 Change history for `choria/mcollective_agent_iptables`
 
+## 4.0.1
+
+Released 2018-04-20
+
+ * Include JSON DDL files
+ * Add Licencing files and contribution guidelines
+
 ## 4.0.0
 
 Release 2018-02-28
