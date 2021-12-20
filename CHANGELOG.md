@@ -2,6 +2,10 @@
 
 Change history for `choria/mcollective_agent_iptables`
 
+## 4.0.2
+
+ * Update module metadata
+
 ## 4.0.1
 
 Released 2018-04-20
