@@ -3,7 +3,7 @@ metadata    :name        => "iptables",
             :author      => "R.I.Pienaar <rip@devco.net>",
             :license     => "ASL 2.0",
             :version     => "4.0.1",
-            :url         => "http://projects.puppetlabs.com/projects/mcollective-plugins/wiki",
+            :url         => "https://github.com/choria-plugins/iptables-agent",
             :timeout     => 2
 
 requires :mcollective => "2.2.1"
