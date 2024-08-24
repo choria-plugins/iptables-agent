@@ -20,14 +20,14 @@ module MCollective
       describe "#validate_configuration" do
         it "should fail if the command is unknown" do
           @app.configuration[:command] = "rspec"
-          expect { @app.validate_configuration(@app.configuration) }.to raise_error(/should be one of/)
+         lambda { @app.validate_configuration(@app.configuration) }.should raise_error(/should be one of/)
         end
 
         it "should fail unless an ip address is set" do
           @app.configuration[:command] = "block"
           @app.configuration[:ipaddress] = nil
 
-          expect { @app.validate_configuration(@app.configuration) }.to raise_error(/provide an IP address/)
+          lambda { @app.validate_configuration(@app.configuration) }.should raise_error(/provide an IP address/)
         end
       end
 

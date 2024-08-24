@@ -10,6 +10,6 @@ describe "ipaddress validator" do
   end
 
   it "should fail for non IP addresses" do
-    expect { MCollective::Validator::IpaddressValidator.validate("rspec") }.to raise_error("value should be an IP address")
+    lambda { MCollective::Validator::IpaddressValidator.validate("rspec") }.should raise_error("value should be an IP address")
   end
 end
