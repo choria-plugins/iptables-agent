@@ -1,11 +1,11 @@
 #!/usr/bin/env rspec
 
 require 'spec_helper'
-require File.join(File.dirname(__FILE__), "../../", "agent", "iptables.rb")
+require File.join(File.dirname(__FILE__), "../../", "files", "mcollective", "agent", "iptables.rb")
 
 describe "iptables agent" do
   before do
-    agent_file = File.join([File.dirname(__FILE__), "../../agent/iptables.rb"])
+    agent_file = File.join([File.dirname(__FILE__), "../../files/mcollective/agent/iptables.rb"])
     @agent = MCollective::Test::LocalAgentTest.new("iptables", :agent_file => agent_file).plugin
 
     @manager = stub

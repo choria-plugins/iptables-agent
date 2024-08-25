@@ -1,7 +1,7 @@
 #!/usr/bin/env rspec
 
 require 'spec_helper'
-require File.join(File.dirname(__FILE__), "../../", "validator", "ipaddress_validator.rb")
+require File.join(File.dirname(__FILE__), "../../", "files", "mcollective", "validator", "ipaddress_validator.rb")
 
 describe "ipaddress validator" do
   it "should pass for either IPv4 or IPv6 addresses" do
