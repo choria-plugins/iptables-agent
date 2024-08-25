@@ -49,7 +49,7 @@ module MCollective
             @shell_status.expects(:exitstatus).returns(1)
             Shell.expects(:new).with("/sbin/iptables -L junk_filter -n 2>&1", any_parameters).returns(@shell)
 
-            expect { @ipv4.listblocked }.to raise_error(/iptables returned/)
+            lambda { @ipv4.listblocked }.should raise_error(/iptables returned/)
           end
 
           it "should parse the iptables output" do
@@ -118,7 +118,7 @@ module MCollective
 
             @ipv4.expects(:blocked?).with("127.0.0.1").twice.returns(true, true)
 
-            expect { @ipv4.unblock("127.0.0.1") }.to raise_error(/still blocked/)
+            lambda { @ipv4.unblock("127.0.0.1") }.should raise_error(/still blocked/)
           end
         end
 
