@@ -10,7 +10,14 @@ chains.
 It is limited to managing one configured chain to which has to exist before the
 agent will activate.
 
-<!--- actions -->
+## Actions
+
+This agent provides the following actions, for details about each please run `mco plugin doc agent/iptables`
+
+ * **block** - Block an IP
+ * **isblocked** - Check if an IP is blocked
+ * **listblocked** - Returns list of blocked ips
+ * **unblock** - Unblock an IP
 
 ## Agent Installtion
 

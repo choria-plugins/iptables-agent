@@ -1,0 +1,18 @@
+---
+mcollective_agent_iptables::config_name: iptables
+mcollective_agent_iptables::common_files:
+- util/iptables/ipv4.rb
+- util/iptables/ipv6.rb
+- validator/ipaddress_validator.rb
+- validator/ipaddress_validator.ddl
+- agent/iptables.ddl
+- agent/iptables.json
+mcollective_agent_iptables::executable_files: []
+mcollective_agent_iptables::common_directories:
+- util/iptables
+mcollective_agent_iptables::server_files:
+- agent/iptables.rb
+mcollective_agent_iptables::server_directories: []
+mcollective_agent_iptables::client_files:
+- application/iptables.rb
+mcollective_agent_iptables::client_directories: []

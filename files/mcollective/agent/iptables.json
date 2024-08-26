@@ -1,0 +1,133 @@
+{
+  "$schema": "https://choria.io/schemas/mcorpc/ddl/v1/agent.json",
+  "metadata": {
+    "name": "iptables",
+    "description": "An agent that manipulates a specific single chain with iptables and ip6tables",
+    "author": "R.I.Pienaar <rip@devco.net>",
+    "license": "ASL 2.0",
+    "version": "4.0.2",
+    "url": "https://github.com/choria-plugins/iptables-agent",
+    "timeout": 2
+  },
+  "actions": [
+    {
+      "action": "block",
+      "input": {
+        "ipaddr": {
+          "prompt": "IP address",
+          "description": "The IP address to block",
+          "type": "string",
+          "default": null,
+          "optional": false,
+          "validation": "ipaddress",
+          "maxlength": 40
+        }
+      },
+      "output": {
+        "output": {
+          "description": "Descriptive status of the action",
+          "display_as": "Output",
+          "default": false
+        },
+        "blocked": {
+          "description": "Boolean indication if the IP is blocked or not",
+          "display_as": "Blocked",
+          "default": null
+        }
+      },
+      "display": "failed",
+      "description": "Block an IP",
+      "aggregate": [
+        {
+          "function": "summary",
+          "args": [
+            "blocked"
+          ]
+        }
+      ]
+    },
+    {
+      "action": "isblocked",
+      "input": {
+        "ipaddr": {
+          "prompt": "IP address",
+          "description": "The IP address to check",
+          "type": "string",
+          "default": null,
+          "optional": false,
+          "validation": "ipaddress",
+          "maxlength": 40
+        }
+      },
+      "output": {
+        "blocked": {
+          "description": "Boolean indication if the IP is blocked or not",
+          "display_as": "Blocked",
+          "default": false
+        }
+      },
+      "display": "always",
+      "description": "Check if an IP is blocked",
+      "aggregate": [
+        {
+          "function": "summary",
+          "args": [
+            "blocked"
+          ]
+        }
+      ]
+    },
+    {
+      "action": "listblocked",
+      "input": {
+      },
+      "output": {
+        "blocked": {
+          "description": "Blocked IPs",
+          "display_as": "Blocked",
+          "default": [
+
+          ]
+        }
+      },
+      "display": "always",
+      "description": "Returns list of blocked ips"
+    },
+    {
+      "action": "unblock",
+      "input": {
+        "ipaddr": {
+          "prompt": "IP address",
+          "description": "The IP address to unblock",
+          "type": "string",
+          "default": null,
+          "optional": false,
+          "validation": "ipaddress",
+          "maxlength": 40
+        }
+      },
+      "output": {
+        "output": {
+          "description": "Descriptive status of the action",
+          "display_as": "Output",
+          "default": false
+        },
+        "blocked": {
+          "description": "Boolean indication if the IP is blocked or not",
+          "display_as": "Blocked",
+          "default": null
+        }
+      },
+      "display": "failed",
+      "description": "Unblock an IP",
+      "aggregate": [
+        {
+          "function": "summary",
+          "args": [
+            "blocked"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,13 +1,13 @@
 #!/usr/bin/env rspec
 
 require 'spec_helper'
-require File.join(File.dirname(__FILE__), '../../', 'application', 'iptables.rb')
+require File.join(File.dirname(__FILE__), '../../', 'files', 'mcollective', 'application', 'iptables.rb')
 
 module MCollective
   class Application
     describe Iptables do
       before do
-        application_file = File.join(File.dirname(__FILE__), '../../', 'application', 'iptables.rb')
+        application_file = File.join(File.dirname(__FILE__), '../../', 'files', 'mcollective', 'application', 'iptables.rb')
         @app = MCollective::Test::ApplicationTest.new('iptables', :application_file => application_file).plugin
       end
 
