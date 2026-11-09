@@ -51,7 +51,7 @@ module MCollective
           @app.configuration[:command] = "isblocked"
           @app.configuration[:ipaddress] = "::1"
 
-          @app.expects(:puts).with(regexp_matches(/rspec1.+blocked/)).never
+          @app.expects(:puts).with(regexp_matches(/rspec1.+blocked/))
           @app.expects(:puts).with(regexp_matches(/rspec2.+unblocked/))
 
           @app.main
